@@ -1,5 +1,5 @@
 Gemini endpoint
-http://localhost:8000/api/v1/gemini
+https://backend-makers.onrender.com/api/v1/gemini
 method = POST
 
 
