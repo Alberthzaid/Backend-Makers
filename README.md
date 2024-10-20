@@ -1,7 +1,6 @@
 API Documentation
 Base URL
 
-arduino
 
 https://backend-makers.onrender.com
 
