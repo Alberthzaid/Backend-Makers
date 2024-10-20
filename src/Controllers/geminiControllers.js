@@ -12,6 +12,7 @@ export const sendPrompt = async (req, res) => {
         const parsedResponse = JSON.parse(responseText);
 
         res.status(200).json({ response: parsedResponse });
+        return parsedResponse;
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: error.message });
