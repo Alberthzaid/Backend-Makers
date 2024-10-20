@@ -1,45 +1,133 @@
-URL BASE = https://backend-makers.onrender.com
+API Documentation
+Base URL
 
+arduino
 
-Gemini endpoint https://backend-makers.onrender.com/api/v1/gemini 
+https://backend-makers.onrender.com
 
-method = POST
+Gemini Endpoint
+POST /api/v1/gemini
 
-Example.... { "prompt":"Hola quiero informacion sobre un iphone 18" }
+Description: Analyzes customer intentions based on the prompt provided.
 
-this is the form how you must do post request
+Request Body Example:
 
-
-Routes Products
-
-https://backend-makers.onrender.com/api/v1/add/product 
-add product 
-example request 
+json
 
 {
-    "product_name":"xxx",
-    "stock_quantity":20,
-    "category":"xxx",
-    "brand":"xxx",
-    "price":10
+  "prompt": "Hola quiero informacion sobre un iphone 18"
 }
 
+Routes for Products
+POST /api/v1/add/product
 
-https://backend-makers.onrender.com/api/v1/get/product
-Get products
+Description: Add a new product.
 
+Request Body Example:
 
-https://backend-makers.onrender.com/api/v1/update/product/:id
-update product 
-example request
+json
 
 {
-    "product_name":"Televisor",
-    "stock_quantity":20,
-    "category":"Electrodomestico",
-    "brand":"Samsung",
-    "price":10
+  "product_name": "xxx",
+  "stock_quantity": 20,
+  "category": "xxx",
+  "brand": "xxx",
+  "price": 10
 }
 
-https://backend-makers.onrender.com/api/v1/update/delete/:id
-delete product
+GET /api/v1/get/product
+
+Description: Retrieve all products.
+PUT /api/v1/update/product/
+
+Description: Update an existing product.
+
+Request Body Example:
+
+json
+
+{
+  "product_name": "Televisor",
+  "stock_quantity": 20,
+  "category": "Electrodomestico",
+  "brand": "Samsung",
+  "price": 10
+}
+
+DELETE /api/v1/update/delete/
+
+Description: Delete a product.
+Routes for Sales
+POST /api/v1/add/sale
+
+Description: Record a new sale.
+
+Request Body Example:
+
+json
+
+{
+  "product_id": 1,
+  "quantity": 2,
+  "amount": 1999.98,
+  "sale_date": "2024-10-19",
+  "client_id": 1
+}
+
+GET /api/v1/get/sales
+
+Description: Retrieve all sales.
+PUT /api/v1/update/sale/
+
+Description: Update an existing sale.
+
+Request Body Example:
+
+json
+
+{
+  "product_id": 1,
+  "quantity": 2,
+  "amount": 1999.98,
+  "sale_date": "2024-10-19",
+  "client_id": 1
+}
+
+DELETE /api/v1/delete/sale/
+
+Description: Delete a sale.
+Routes for Clients
+POST /api/v1/add/client
+
+Description: Add a new client.
+
+Request Body Example:
+
+json
+
+{
+  "name": "John Doe",
+  "age": 30,
+  "adress": "123 Main St"
+}
+
+GET /api/v1/get/clients
+
+Description: Retrieve all clients.
+PUT /api/v1/update/client/
+
+Description: Update an existing client.
+
+Request Body Example:
+
+json
+
+{
+  "name": "Jane Doe",
+  "age": 28,
+  "adress": "456 Elm St"
+}
+
+DELETE /api/v1/delete/client/
+
+Description: Delete a client.
