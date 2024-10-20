@@ -7,12 +7,14 @@ export const sendPrompt = async (req, res) => {
         const promptAnalyst = await analystPrompt(prompt);
         const geminiResponse = await geminiService(promptAnalyst);
 
-        const responseText = geminiResponse.response.candidates[0].content.parts[0].text;
+        
+        let responseText = geminiResponse.response.candidates[0].content.parts[0].text;
+
+        responseText = responseText.replace(/```json/g, '').replace(/```/g, '');
 
         const parsedResponse = JSON.parse(responseText);
 
         res.status(200).json({ response: parsedResponse });
-        return parsedResponse;
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: error.message });
