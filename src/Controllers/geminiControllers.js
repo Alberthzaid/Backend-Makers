@@ -7,9 +7,7 @@ export const sendPrompt = async (req, res) => {
         const promptAnalyst = await analystPrompt(prompt);
         const geminiResponse = await geminiService(promptAnalyst);
 
-
         const responseText = geminiResponse.response.candidates[0].content.parts[0].text;
-
 
         const parsedResponse = JSON.parse(responseText);
 
