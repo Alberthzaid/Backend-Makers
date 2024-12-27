@@ -1,10 +1,11 @@
 export class Product{
-    constructor(name , stock , price , category , brand){
+    constructor(name , stock , price , category , brand , image){
         this.name = name;
         this.stock = stock;
         this.category = category;
         this.price = price;
-        this.brand = brand
+        this.brand = brand;
+        this.image = image
     }
 
     getName(){
@@ -34,7 +35,8 @@ export class Product{
             stock_quantity:this.stock,
             category:this.category,
             brand:this.brand,
-            price:this.price
+            price:this.price,
+            image:this.image
 
         }
 

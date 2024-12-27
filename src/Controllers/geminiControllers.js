@@ -9,6 +9,7 @@ export const sendPrompt = async (req, res) => {
 
         
         let responseText = geminiResponse.response.candidates[0].content.parts[0].text;
+        console.log(responseText)
 
         responseText = responseText.replace(/```json/g, '').replace(/```/g, '');
 

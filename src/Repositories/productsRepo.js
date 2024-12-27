@@ -5,13 +5,13 @@ const tableProducts = Supabase.from('tech_products');
 
 export const newProduct = async (json) => {
     try {
-        const { product_name, stock_quantity, price, category, brand } = json;
+        const { product_name, stock_quantity, price, category, brand , image} = json;
 
-        if (!product_name || !stock_quantity || !price || !category || !brand) {
+        if (!product_name || !stock_quantity || !price || !category || !brand || !image) {
             return { error: "Missing required fields" }; 
         }
 
-        const product = new Product(product_name, stock_quantity, price, category, brand);
+        const product = new Product(product_name, stock_quantity, price, category, brand, image);
         const { data, error } = await tableProducts.insert(product.toJson());
 
         if (error) {
@@ -42,13 +42,13 @@ export const getProductsFromDB = async () => {
 
 export const updateProductInDB = async (id, productData) => {
     try {
-        const { product_name, stock_quantity, price, category, brand } = productData;
+        const { product_name, stock_quantity, price, category, brand , image} = productData;
 
-        if (!product_name || !stock_quantity || !price || !category || !brand) {
+        if (!product_name || !stock_quantity || !price || !category || !brand || !image) {
             return { error: "Missing required fields" };
         }
 
-        const product = new Product(product_name, stock_quantity, price, category, brand);
+        const product = new Product(product_name, stock_quantity, price, category, brand , image);
         const { data, error } = await tableProducts.update(product.toJson()).eq('id', id);
 
         if (error) {
